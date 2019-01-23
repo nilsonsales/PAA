@@ -1,5 +1,5 @@
 """
-Problem: BITMAP
+Problem: Viagem a Marte
 Author: nilsonsales
 """
 

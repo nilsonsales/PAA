@@ -1,6 +1,7 @@
 # Problem: Stock Maximize Problem
 
 
+# Gets the position of the highest element in a subarray
 def get_max_pos(init, shares):
     max = 0
     max_position = 0
@@ -11,29 +12,32 @@ def get_max_pos(init, shares):
     return max_position
 
 
+# Calculates the profit in a subarray, knowing that the last element is the highest
 def get_profit(init, end, shares):
-    profit = 0
+    subprofit = 0
     n_shares = 0
 
-    # BUYING SHARES
+    # BUY SHARES
     # iterates the subarray that goes from
-    # init until the element before the maximim value
+    # init until the element before the maximum value
     for item in shares[init:end]:
-        profit -= item
+        subprofit -= item
         n_shares += 1
     
-    # SELLING SHARES
-    # sell the shares at the max value
-    profit += (n_shares * shares[end])
+    # SELL SHARES
+    # sell all the shares at the maximum value
+    subprofit += (n_shares * shares[end])
 
-    return profit
+    return subprofit
 
 
+# Returns the maximum profit of the whole array
 def max_profit(n, shares):
     profit = 0
     init = 0
 
     while init < len(shares)-1:
+        # Gets the position of the maximum element to limit a subarray
         max_i = get_max_pos(init, shares)
         print("Max at #", max_i)
 
@@ -46,7 +50,8 @@ def max_profit(n, shares):
     return profit
 
 
-# Number of days
+
+# Number of predicted days
 n = int(input())
 
 # Share prices
